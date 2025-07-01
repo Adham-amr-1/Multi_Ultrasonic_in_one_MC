@@ -23,15 +23,15 @@ This project demonstrates how to connect and operate **multiple ultrasonic senso
 - 5V Power Supply
 - Breadboard + jumper wires
 
-## 🖥️ Pin Configuration
+## 🖥️ Pin Configuration ( Follow the Proteus Design File )
 
 | Ultrasonic Sensor | Trigger Pin | Echo Pin |
 |-------------------|-------------|----------|
-| Front             | PD0         | PD4      |
-| Back              | PD1         | PD5      |
-| Left              | PD2         | PD6      |
-| Right             | PD3         | PD7      |
-| LCD               | PORTC (Data)| RS/EN as needed |
+| Front             | PC0         | ICR PIN       |
+| Back              | PC1         | ICR PIN       |
+| Left              | PC2         | ICR PIN      |
+| Right             | PC3         | ICR PIN     |
+| LCD               | PORTA (Data)| RS/EN as needed |
 
 ## 🧠 How It Works
 
