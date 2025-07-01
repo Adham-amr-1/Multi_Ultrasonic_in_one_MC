@@ -33,8 +33,6 @@ This project demonstrates how to connect and operate **multiple ultrasonic senso
 | Right             | PC3         | ICR PIN     |
 | LCD               | PORTA (Data)| RS/EN as needed |
 
-## 🧠 How It Works
-
 ## ⚙️ How It Works
 
 The system reads distance measurements from four **HC-SR04 ultrasonic sensors** using a single microcontroller (e.g., ATmega32) by leveraging **sequential triggering** and **external interrupts** for accurate echo timing.
