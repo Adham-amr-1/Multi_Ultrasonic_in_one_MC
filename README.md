@@ -83,11 +83,8 @@ Multi_Ultrasonic_in_one_MC/
 │   ├── lcd.c                # LCD interface functions
 
 │   └── lcd.h                # Header for lcd.c
-
 │
-
 ├── include/                 # Optional: common headers
-
 │   └── config.h             # Pin definitions and global macros
 
 │
