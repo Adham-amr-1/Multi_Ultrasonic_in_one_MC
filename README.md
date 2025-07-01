@@ -73,22 +73,39 @@ This design ensures accurate, reliable measurements while minimizing processing 
 Multi_Ultrasonic_in_one_MC/
 
 ├── src/
+
 │   ├── main.c               # Main application code
+
 │   ├── ultrasonic.c         # Functions for ultrasonic sensor control
+
 │   ├── ultrasonic.h         # Header for ultrasonic.c
+
 │   ├── lcd.c                # LCD interface functions
+
 │   └── lcd.h                # Header for lcd.c
+
 │
+
 ├── include/                 # Optional: common headers
+
 │   └── config.h             # Pin definitions and global macros
+
 │
+
 ├── docs/
+
 │   └── schematic.png        # Circuit diagram or schematic image
+
 │
+
 ├── Makefile                 # Build instructions for AVR-GCC
+
 ├── README.md                # Project documentation
+
 ├── LICENSE                  # License (e.g., MIT)
+
 └── .gitignore               # Ignore build files or hex outputs
+
 
 
 ## 🔧 How to Build
