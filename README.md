@@ -2,13 +2,18 @@
 
 This project demonstrates how to connect and operate **multiple ultrasonic sensors (HC-SR04)** using **a single microcontroller**—specifically an **AVR-based ATmega32**. The setup captures distance measurements from four directions and displays the real-time results on a 16x2 LCD.
 
-## 🚀 Features
+## 🚀 Key Features
 
-- Supports **4 ultrasonic sensors** connected to one microcontroller
-- Measures and displays distances in **centimeters**
-- Real-time update on **16x2 character LCD**
-- Uses **Timer** and **External Interrupts** for precise echo capture
-- Efficiently avoids sensor interference via sequential triggering
+- 📏 Real-time distance measurement from **four directions**
+- 🔄 **Sequential triggering** to prevent cross-sensor interference
+- ⏱️ Utilizes **Timer** and **External Interrupts** for precise echo capture
+- 📺 Real-time updates displayed on a **16x2 character LCD**
+- 🧩 Modular code structure for easy portability and scalability
+- 📐 Measures and displays distances in **centimeters**
+- 🔌 Supports up to **4 ultrasonic sensors** on a single microcontroller
+- ⚙️ Efficient, interrupt-driven design ensures minimal latency
+- 💡 Optimized for obstacle detection, navigation, and embedded automation
+
 
 ## 🧰 Hardware Requirements
 
@@ -18,16 +23,72 @@ This project demonstrates how to connect and operate **multiple ultrasonic senso
 - 5V Power Supply
 - Breadboard + jumper wires
 
+## 🖥️ Pin Configuration
+
+| Ultrasonic Sensor | Trigger Pin | Echo Pin |
+|-------------------|-------------|----------|
+| Front             | PD0         | PD4      |
+| Back              | PD1         | PD5      |
+| Left              | PD2         | PD6      |
+| Right             | PD3         | PD7      |
+| LCD               | PORTC (Data)| RS/EN as needed |
+
 ## 🧠 How It Works
 
-Each ultrasonic sensor is triggered sequentially, and its echo signal is captured using external interrupts or polling. The time duration is then converted to distance using the speed of sound formula:
+## ⚙️ How It Works
 
+The system reads distance measurements from four **HC-SR04 ultrasonic sensors** using a single microcontroller (e.g., ATmega32) by leveraging **sequential triggering** and **external interrupts** for accurate echo timing.
+
+### 🔁 Step-by-Step Operation
+
+1. **Trigger Sequence**  
+   The microcontroller activates the **Trigger pin** of the first ultrasonic sensor by sending a 10μs HIGH pulse.
+
+2. **Echo Detection via Interrupt**  
+   The sensor sends out an ultrasonic pulse and waits for it to bounce back from an object. The returning signal is received via the **Echo pin**, which is connected to an external interrupt pin on the MCU.
+
+3. **Timing the Echo**  
+   The microcontroller starts a timer when the Echo pin goes HIGH and stops it when the pin goes LOW, measuring the time-of-flight in microseconds.
+
+4. **Distance Calculation**  
+   The measured time is used to calculate the distance using the standard formula:
+
+5. **Display Output**  
+The result is displayed on a **16x2 character LCD** for each sensor (front, back, left, right), showing real-time distance values.
+
+6. **Repeat for All Sensors**  
+The process is repeated for the remaining three sensors in sequence with slight delays to avoid ultrasonic signal overlap and interference.
+
+### 🧠 Technical Highlights
+
+- **Timer Module**: Used for precise timing of echo pulse durations.
+- **External Interrupts**: Handle echo pulse detection to ensure non-blocking, accurate timing.
+- **LCD Module**: Continuously updated to reflect real-time distances from all directions.
+- **Sequential Control**: Only one sensor is active at a time to prevent interference.
+
+This design ensures accurate, reliable measurements while minimizing processing overhead and hardware complexity.
 
 ## 🗂️ File Structure
 
-- `main.c` – Main logic to initialize peripherals and run the measurement loop
-- `LCD.c/.h` – LCD control functions (initialize, print, clear, etc.)
-- `Ultrasonic.c/.h` – Handles ultrasonic sensor triggering and echo timing
+Multi_Ultrasonic_in_one_MC/
+├── src/
+│   ├── main.c               # Main application code
+│   ├── ultrasonic.c         # Functions for ultrasonic sensor control
+│   ├── ultrasonic.h         # Header for ultrasonic.c
+│   ├── lcd.c                # LCD interface functions
+│   └── lcd.h                # Header for lcd.c
+│
+├── include/                 # Optional: common headers
+│   └── config.h             # Pin definitions and global macros
+│
+├── docs/
+│   └── schematic.png        # Circuit diagram or schematic image
+│
+├── Makefile                 # Build instructions for AVR-GCC
+├── README.md                # Project documentation
+├── LICENSE                  # License (e.g., MIT)
+└── .gitignore               # Ignore build files or hex outputs
+
 
 ## 🔧 How to Build
 
@@ -37,9 +98,10 @@ This project is written in C and compiled using **AVR-GCC**. You can use tools l
 - **AVRDUDE** + **AVR-GCC** + **Makefile**
 - **Proteus** (for simulation)
 
-### Example Make Command
+## 🛠️ Getting Started
+
+### 🔽 Clone the Repository
 
 ```bash
-avr-gcc -mmcu=atmega32 -Os main.c LCD.c Ultrasonic.c -o ultrasonic.elf
-avr-objcopy -O ihex ultrasonic.elf ultrasonic.hex
-avrdude -c usbasp -p m32 -U flash:w:ultrasonic.hex
+git clone https://github.com/Adham-amr-1/Multi_Ultrasonic_in_one_MC.git
+cd Multi_Ultrasonic_in_one_MC
