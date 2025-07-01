@@ -14,6 +14,7 @@ This project demonstrates how to connect and operate **multiple ultrasonic senso
 - ⚙️ Efficient, interrupt-driven design ensures minimal latency
 - 💡 Optimized for obstacle detection, navigation, and embedded automation
 
+---
 
 ## 🧰 Hardware Requirements
 
@@ -22,6 +23,8 @@ This project demonstrates how to connect and operate **multiple ultrasonic senso
 - 16x2 LCD display
 - 5V Power Supply
 - Breadboard + jumper wires
+- 
+---
 
 ## 🖥️ Pin Configuration ( Follow the Proteus Design File )
 
@@ -32,6 +35,8 @@ This project demonstrates how to connect and operate **multiple ultrasonic senso
 | Left              | PC2         | ICR PIN      |
 | Right             | PC3         | ICR PIN     |
 | LCD               | PORTA (Data)| RS/EN as needed |
+
+---
 
 ## ⚙️ How It Works
 
@@ -57,6 +62,8 @@ The result is displayed on a **16x2 character LCD** for each sensor (front, back
 6. **Repeat for All Sensors**  
 The process is repeated for the remaining three sensors in sequence with slight delays to avoid ultrasonic signal overlap and interference.
 
+---
+
 ### 🧠 Technical Highlights
 
 - **Timer Module**: Used for precise timing of echo pulse durations.
@@ -66,45 +73,31 @@ The process is repeated for the remaining three sensors in sequence with slight 
 
 This design ensures accurate, reliable measurements while minimizing processing overhead and hardware complexity.
 
-## 🗂️ File Structure
+---
 
+## 🗂️ File Structure
+```
 Multi_Ultrasonic_in_one_MC/
 
 ├── src/
-
 │   ├── main.c               # Main application code
-
 │   ├── ultrasonic.c         # Functions for ultrasonic sensor control
-
 │   ├── ultrasonic.h         # Header for ultrasonic.c
-
 │   ├── lcd.c                # LCD interface functions
-
 │   └── lcd.h                # Header for lcd.c
-
 │
-
 ├── include/                 # Optional: common headers
-
 │   └── config.h             # Pin definitions and global macros
-
 │
-
 ├── docs/
-
 │   └── schematic.png        # Circuit diagram or schematic image
-
 │
-
 ├── Makefile                 # Build instructions for AVR-GCC
-
 ├── README.md                # Project documentation
-
 ├── LICENSE                  # License (e.g., MIT)
-
 └── .gitignore               # Ignore build files or hex outputs
-
-
+```
+---
 
 ## 🔧 How to Build
 
@@ -114,7 +107,7 @@ This project is written in C and compiled using **AVR-GCC**. You can use tools l
 - **AVRDUDE** + **AVR-GCC** + **Makefile**
 - **Proteus** (for simulation)
 
-## 🛠️ Getting Started
+---
 
 ### 🔽 Clone the Repository
 
