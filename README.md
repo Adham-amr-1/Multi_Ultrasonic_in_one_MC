@@ -23,7 +23,7 @@ This project demonstrates how to connect and operate **multiple ultrasonic senso
 - 16x2 LCD display
 - 5V Power Supply
 - Breadboard + jumper wires
-- 
+   
 ---
 
 ## 🖥️ Pin Configuration ( Follow the Proteus Design File )
